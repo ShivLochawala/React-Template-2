@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PageWrapper from './components/PageWrapper';
+import Footer from  './components/Footer';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
+//Pages
+import Home from './components/Pages/Home';
+import Rooms from './components/Pages/Rooms';
+import AboutUs from './components/Pages/AboutUs';
+import RoomDetails from './components/Pages/RoomDetails';
+import BlogDetails from './components/Pages/BlogDetails';
+import News from './components/Pages/News';
+import Contact from './components/Pages/Contact';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <PageWrapper/>
+      <Route path="/" exact={true} component={Home}/>
+      <Route path="/Rooms" component={Rooms}/>
+      <Route path="/About-us" component={AboutUs}/>
+      <Route path="/Room-Details" component={RoomDetails}/>
+      <Route path="/Blog-Details" component={BlogDetails}/>
+      <Route path="/News" component={News}/>
+      <Route path="/Contact" component={Contact}/>
+      <Footer/>
+    </Router>
   );
 }
 
